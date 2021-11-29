@@ -6,12 +6,12 @@ services:
     volumes:
       - ./static:/var/www/http
     ports:
-      - 9090:80
+      - 9091:80
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.minimalhttpserver.rule=Host(`apps.${HTTP_HOST}`)"
       - "traefik.http.routers.minimalhttpserver.entrypoints=websecure"
-      - "traefik.port=9091"
+      - "traefik.port=80"
     networks:
       - web
 networks:
