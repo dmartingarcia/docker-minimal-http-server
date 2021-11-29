@@ -1,0 +1,19 @@
+version: "3.6"
+
+services:
+  minimal_web_server:
+    image: dragas/thttpd
+    volumes:
+      - ./static:/var/www/http
+    ports:
+      - 9090:80
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.minimalhttpserver.rule=Host(`apps.${HTTP_HOST}`)"
+      - "traefik.http.routers.minimalhttpserver.entrypoints=websecure"
+      - "traefik.port=9091"
+    networks:
+      - web
+networks:
+  web:
+    external: true
