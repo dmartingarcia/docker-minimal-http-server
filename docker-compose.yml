@@ -9,6 +9,9 @@ services:
       - 9091:80
     labels:
       - "traefik.enable=true"
+      - "traefik.http.routers.minimalhttpserver.tls=true"
+      - "traefik.http.routers.minimalhttpserver.tls.certresolver=lets-encrypt"
+      - "traefik.http.routers.minimalhttpserver.middlewares=simpleauth@file"
       - "traefik.http.routers.minimalhttpserver.rule=Host(`apps.${HTTP_HOST}`)"
       - "traefik.http.routers.minimalhttpserver.entrypoints=websecure"
       - "traefik.port=80"
