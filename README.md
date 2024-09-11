@@ -8,7 +8,7 @@ In this case, it contains a self-efficient minimal *http server* setup, that can
 
 ```
 cp .env.example .env
-docker-compose up -d
+docker compose up -d
 ```
 
 And browse into `http://localhost:9090`.
